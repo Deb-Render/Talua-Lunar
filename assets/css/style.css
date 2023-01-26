@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+body, html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'work sans', sans-serif;
+    font-weight: 400;
+    height: 200vh
+    
+    
+} 
+
+html {
+    scroll-padding-top: 6rem;
+}
+
+
+/*********************************************************
+HEADER AND NAV
+**********************************************************/
+
+.logo {
+    text-align: center;
+}
+
+:root {
+    --background: white;
+}
+
+/* .main-nav .main-ul {
+       text-decoration: none;
+       list-style: none;
+       display: flex;
+       justify-content: space-between;
+}
+
+.main-nav .main-ul a {
+    text-decoration: none;
+    color: black;
+} */
+
+/*START OF KEVINS NAV*/
+
+header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100px;
+    
+}
+
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: grey;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative ;
+}
+
+
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+.main-nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    
+    background: var(--background);
+    width: 100%;
+    /* display: none; */
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+    }
+
+.main-ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+.main-nav .main-ul li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.main-nav .main-ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+.main-nav .main-ul li a:hover {
+    color: black;
+}
+
+.nav-toggle:checked ~ .main-nav {
+transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+/***************************************************************** 
+V Hero Image V 
+*****************************************************************/
+
+/* .hero {
+    border: 1px solid black;
+    color: black;
+    width: 100%;
+    height: 300px;
+} */
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("/assets/images/jessica-delp-dDq0G17Jxko-unsplash.jpg");
+  
+    /* Set a specific height */
+    height: 30%;
+  
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Place text in the middle of the image */
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+
+  .placeholder {
+      height: 100px;
+  }
+/******************************************************** 
+V MOST POPULAR V 
+*********************************************************/
+.most-popular {
+    border: 1px solid black;
+    height: auto;
+    width: 100%;
+    
+}
+
+.popular-heading {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* .heading {
+    text-align: center;
+    display: block;
+} */
+
+
+.popular-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.popular-boxes {
+    display: block;
+    margin: auto;
+    border: 1px solid black;
+    width: 100px;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+/* why is this here V */
+/* .most-popular {
+    display: block;
+    text-align: center;
+   
+} */
+
+.popular-img {
+    display: block;
+    border: 1px solid black;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    flex-wrap: wrap;
+}
+
+.img {
+    /* display: block; */
+    
+    height: 150px;
+    width: 150px;
+}
+
+.popular-description {
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.about-heading {
+    text-align: center;
+}
+
+.about-img {
+    /* display: block; */
+    height: 30%;
+    width: 50%;
+}
+
+/********************************************************** 
+V Nav bar Media Queery V 
+************************************************************/
+
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+
+    .logo {
+        grid-column: 2 / 3;
+    }
+
+    .main-nav {
+        /*this adds edge support*/
+
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1,1);
+        background: none;
+        top: initial;
+        left: initial;
+/* Edge support end*/
+
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+    }
+
+    .main-nav .main-ul {
+        display: flex;
+        
+    }
+
+    .main-nav .main-ul li  {
+        margin-left: 3em;
+        margin-bottom: 0;
+       }
+
+    .main-nav .main-ul li a {
+        opacity: 1;
+        position: relative;
+}
+
+}
+
+/* .placeholder {
+    color: green;
+    width: 100%;
+    height: 300px;
+}
+
+.most-popular {
+    height: 200px;
+    width: 100%;
+}
+
+.popular-img {
+    height: 100px;
+    width: 100px;
+} */
+
+
+/*********************************************************
+HERO
+**********************************************************/
+
+
+/**********************************************************
+MOST POPULAR
+**********************************************************/
+
+
+
+/*********************************************************
+ABOUT
+*********************************************************/
+
+
+
+/********************************************************
+PRODUCTS
+********************************************************/
+
+
+
+
+/********************************************************
+CONTACT
+********************************************************/
+
+
+/*******************************************************
+FOOTER
+*******************************************************/
+
+
+
+
